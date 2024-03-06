@@ -1,5 +1,26 @@
-.box{
-  box-shadow: 5px 5px 20px #3662E3;
+.container {
+  max-width: 100%;
   margin-top: 80px;
-  border-radius: 8px;
 }
+
+.box {
+  background-color: #f8f9fa;
+  padding: 5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  border: 1px dashed #818589;
+
+}
+
+span {
+  font-size: 11px;
+}
+
+strong {
+  font-size: 11px;
+}
+
+img {
+  border-radius: 12px;
+}
+

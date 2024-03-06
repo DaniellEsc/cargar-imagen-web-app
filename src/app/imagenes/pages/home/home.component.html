@@ -1,28 +1,67 @@
 
-<div class="container text-center">
+<div class="container text-center mb-5 mx-auto d-flex justify-content-center">
+  <div class="box col-md-6 mx-auto">
+    <input
+    *ngIf="!imagePreview"
+    id="fileInput"
+    type="file"
+    (change)="onFileSelected($event)"
+    accept="image/**"
+    style="display: none;">
 
-  <div class="box">
-
-    <input id="fileInput" type="file" (change)="onFileSelected($event)" accept="image/**" style="display: none;">
-
-    <label for="fileInput" class="file-input-label">
-      <i class="fas fa-upload mt-5"></i>
+    <label
+    for="fileInput"
+    class="file-input-label"
+    *ngIf="!imagePreview">
+      <i
+      class="fas fa-upload mt-5"
+       style="color: #74C0FC;"></i>
       <br>
-      <span>Seleccion o arrastra la imagen al recuadro </span>
+      <strong>Seleccion o arrastra la imagen al recuadro</strong>
+      <br>
+      <span> JPG, PNG or Gif - Max file 10MB </span>
     </label>
-    <div class="row justify-content-center mt-5">
-      <div class="col-md-6 text-center">
 
-        <img class="img-thumbnail" *ngIf="imagePreview" [src]="imagePreview" alt="Vista previa de imagen">
+    <div class="progress" *ngIf="loading">
+        <div
+        class="progress-bar progress-bar-striped progress-bar-animated"
+        role="progressbar"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        style="width: 100%;"
+      ></div>
+      <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+
+    <div class="row justify-content-center mt-5 mb-2">
+      <div class="col-12 text-center">
+        <img
+        class="img-thumbnail"
+        *ngIf="imagePreview"
+        [src]="imagePreview"
+        alt="Vista previa de imagen">
       </div>
     </div>
-    <button (click)="cargarImgenen()" class="btn btn-primary mb-4">Cargar</button>
 
+    <button
+    (click)="cargarImgenen()"
+    class="btn btn-outline-primary mb-4 mx-2"
+    *ngIf="imagePreview">
+      <i class="fa-solid fa-share" style="color: #74C0FC;"></i>
+    </button>
+    <button
+    (click)="descargarImagen()"
+    class="btn btn-outline-primary mb-4 mx-2"
+    *ngIf="imagePreview">
+      <i class="fa-solid fa-download" style="color: #74C0FC;"></i>
+    </button>
+    <button
+    (click)="cargarImgenen()"
+    class="btn btn-outline-primary mb-4 mx-2"
+    *ngIf="imagePreview">
+      <i class="fa-solid fa-floppy-disk" style="color: #74C0FC;"></i>
+    </button>
   </div>
-
-
-
-
 </div>
 
 
