@@ -1,0 +1,43 @@
+ <div class="container">
+ <h2>Imagenes</h2>
+  <div class="row">
+    <div class="col-md-4 mt-4" *ngFor="let imagen of imagenes">
+      <div class="card mb-4 h-100">
+        <img [src]="'data:image/jpeg;base64,' + imagen.datos" alt="imagenes">
+        <div class="card-body">
+          <h5 class="card-title"> {{ imagen.nombre }}</h5>
+          <button class="btn btn-secondary"
+          (click)="getImagenPorId(imagen.id)"
+          data-bs-toggle="modal"
+          data-bs-target="#imageModal">
+          Ver</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div
+class="modal fade"
+id="imageModal"
+tabindex="-1"
+aria-labelledby="imageModalLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="imageModalLabel">{{ imagenSeleccionada?.nombre }}</h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <img [src]="imagenSeleccionada?.url" alt="Imagen Seleccionada" class="img-fluid" />
+    </div>
+  </div>
+</div>

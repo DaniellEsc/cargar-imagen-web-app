@@ -1,0 +1,30 @@
+
+<div class="container text-center">
+
+  <div class="box">
+
+    <input id="fileInput" type="file" (change)="onFileSelected($event)" accept="image/**" style="display: none;">
+
+    <label for="fileInput" class="file-input-label">
+      <i class="fas fa-upload mt-5"></i>
+      <br>
+      <span>Seleccion o arrastra la imagen al recuadro </span>
+    </label>
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-6 text-center">
+
+        <img class="img-thumbnail" *ngIf="imagePreview" [src]="imagePreview" alt="Vista previa de imagen">
+      </div>
+    </div>
+    <button (click)="cargarImgenen()" class="btn btn-primary mb-4">Cargar</button>
+
+  </div>
+
+
+
+
+</div>
+
+
+
+
