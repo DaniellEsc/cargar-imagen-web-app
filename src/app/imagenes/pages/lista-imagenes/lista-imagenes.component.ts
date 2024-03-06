@@ -18,18 +18,20 @@ export class ListaImagenesComponent implements OnInit{
     this.obtenerImgenes();
   }
 
+
+
   obtenerImgenes(){
     this.imagenesService.getImagenes().subscribe(data => this.imagenes = data)
   }
+
+
 
   getImagenPorId(id:number) {
     this.imagenesService.getImagenById(id)
       .subscribe(data => {
         const imagenBlod = new Blob([data],{type:'image/jpeg'});
-
         const imagenUrl = this.sanitizer.bypassSecurityTrustUrl(
           URL.createObjectURL(imagenBlod));
-
         this.imagenSeleccionada = {url: imagenUrl, nombre: data.nombre};
       },
       (error) => {
